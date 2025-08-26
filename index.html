@@ -5,34 +5,82 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Goonware</title>
   <style>
-    /* Base Styling */
-    body {
+    /* Reset */
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: white;
-      background: url('https://cdn.discordapp.com/attachments/1407883428036083833/1408247835014729870/Screenshot_2025-08-22_023348.png?ex=68aefb3f&is=68ada9bf&hm=a023f71866835e54eb617787e67df97ea226c71e2449b8226d72a85ea3324cfc&') 
+      background: url('https://cdn.discordapp.com/attachments/1407883428036083833/1408247835014729870/Screenshot_2025-08-22_023348.png') 
                   no-repeat center center fixed;
       background-size: cover;
-      text-align: center;
       overflow-x: hidden;
     }
 
+    /* Dark overlay */
     .overlay {
-      background: rgba(0, 0, 0, 0.75);
+      background: rgba(0, 0, 0, 0.8);
       min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Navbar */
+    nav {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      border-bottom: 2px solid red;
+      background: rgba(0, 0, 0, 0.85);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav h1 {
+      font-size: 1.8rem;
+      color: red;
+      letter-spacing: 2px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: red;
+    }
+
+    /* Hero Section */
+    .hero {
+      flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 30px;
+      padding: 60px 20px;
+      text-align: center;
     }
 
-    /* Title */
-    h1 {
-      font-size: 3.5rem;
-      margin: 0;
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 10px;
       text-transform: uppercase;
-      letter-spacing: 2px;
     }
 
     .underline {
@@ -44,25 +92,28 @@
       border-radius: 2px;
     }
 
-    h2 {
-      font-size: 1.8rem;
-      margin: 10px 0 30px 0;
+    .hero h3 {
+      font-size: 1.6rem;
+      margin-bottom: 20px;
       font-weight: 400;
       opacity: 0.9;
     }
 
-    /* Description */
-    p {
-      max-width: 700px;
-      margin: 0 auto 30px auto;
-      font-size: 1.1rem;
+    .description {
+      background: rgba(20, 20, 20, 0.85);
+      border-left: 3px solid red;
+      padding: 25px;
+      max-width: 750px;
+      margin: 20px auto;
+      border-radius: 6px;
+      font-size: 1.05rem;
       line-height: 1.7;
-      opacity: 0.95;
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
     }
 
     /* Buttons */
     .button-container {
-      margin-top: 20px;
+      margin-top: 30px;
       display: flex;
       gap: 20px;
       flex-wrap: wrap;
@@ -70,7 +121,7 @@
     }
 
     .btn {
-      padding: 14px 30px;
+      padding: 14px 32px;
       font-size: 1rem;
       font-weight: 600;
       border: 2px solid red;
@@ -80,38 +131,53 @@
       text-decoration: none;
       border-radius: 6px;
       transition: all 0.3s ease;
-      box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+      box-shadow: 0 0 12px rgba(255, 0, 0, 0.4);
     }
 
     .btn:hover {
       background: red;
       color: black;
-      box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+      box-shadow: 0 0 25px rgba(255, 0, 0, 0.8);
       transform: scale(1.05);
+    }
+
+    /* Footer */
+    footer {
+      padding: 15px;
+      text-align: center;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255, 0, 0, 0.4);
+      background: rgba(0, 0, 0, 0.85);
     }
 
     /* Responsive */
     @media (max-width: 768px) {
-      h1 {
-        font-size: 2.5rem;
+      .hero h2 {
+        font-size: 2.2rem;
       }
-      h2 {
-        font-size: 1.4rem;
+      .hero h3 {
+        font-size: 1.2rem;
       }
-      p {
-        font-size: 1rem;
+      .description {
+        font-size: 0.95rem;
       }
     }
 
     @media (max-width: 480px) {
-      h1 {
-        font-size: 2rem;
+      nav {
+        flex-direction: column;
+        gap: 10px;
       }
-      h2 {
-        font-size: 1.2rem;
+      nav ul {
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
       }
-      p {
-        font-size: 0.9rem;
+      .hero h2 {
+        font-size: 1.8rem;
+      }
+      .hero h3 {
+        font-size: 1rem;
       }
       .btn {
         padding: 12px 20px;
@@ -121,20 +187,39 @@
 </head>
 <body>
   <div class="overlay">
-    <h1>Goonware</h1>
-    <div class="underline"></div>
-    <h2>The Next Generation External</h2>
+    <!-- Navbar -->
+    <nav>
+      <h1>GOONWARE</h1>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Features</a></li>
+        <li><a href="your-download-link.exe">Download</a></li>
+        <li><a href="https://discord.gg/your-link">Support</a></li>
+      </ul>
+    </nav>
 
-    <p>
-      Goonware External is a cutting-edge solution built for performance, stability, and modern gaming needs.  
-      Designed to be sleek, lightweight, and powerful — it provides an optimized experience for serious players.  
-      Whether you’re looking for reliability or customization, Goonware has you covered.
-    </p>
+    <!-- Hero Section -->
+    <section class="hero">
+      <h2>Goonware</h2>
+      <div class="underline"></div>
+      <h3>The Next Generation External</h3>
 
-    <div class="button-container">
-      <a href="your-download-link.exe" class="btn">⬇ Download</a>
-      <a href="https://discord.gg/your-link" class="btn">💬 Support</a>
-    </div>
+      <div class="description">
+        Goonware External is a cutting-edge solution built for performance, stability, and modern gaming needs.  
+        Designed to be sleek, lightweight, and powerful — it provides an optimized experience for serious players.  
+        Whether you’re looking for reliability or customization, Goonware has you covered.
+      </div>
+
+      <div class="button-container">
+        <a href="your-download-link.exe" class="btn">⬇ Download</a>
+        <a href="https://discord.gg/your-link" class="btn">💬 Support</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      © 2025 Goonware. All Rights Reserved.
+    </footer>
   </div>
 </body>
 </html>
