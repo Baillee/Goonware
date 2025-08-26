@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Goonware</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      background: url('your-background.png') no-repeat center center fixed;
+      background-size: cover;
+      text-align: center;
+    }
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.7);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin: 0;
+      text-transform: uppercase;
+    }
+
+    .underline {
+      width: 100%;
+      height: 3px;
+      background: red;
+      margin: 10px 0 20px 0;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin: 10px 0 20px 0;
+      font-weight: 400;
+    }
+
+    p {
+      max-width: 600px;
+      margin: 20px auto;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .button-container {
+      margin-top: 20px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      font-size: 1rem;
+      border: 2px solid red;
+      background: black;
+      color: white;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: red;
+      color: black;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.2rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+
+      .btn {
+        padding: 10px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <h1>Goonware</h1>
+    <div class="underline"></div>
+    <h2>The Ultimate External Experience</h2>
+
+    <p>
+      Goonware External is designed to give you the best possible performance while keeping things simple and effective.  
+      Built with stability, speed, and ease of use in mind — it’s the go-to tool for gamers who demand more.
+    </p>
+
+    <div class="button-container">
+      <a href="your-download-link.exe" class="btn">Download</a>
+      <a href="your-discord-invite-link" class="btn">Support</a>
+    </div>
+  </div>
+</body>
+</html>
